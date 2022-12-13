@@ -1,0 +1,12 @@
+#include<stdio.h>
+int main()
+{
+    int num=0; //declaration of integer
+    int *ptr=&num;// initialization of a number
+    num=20;
+    printf("%d\n",num);
+    printf("%p\n",&num);
+    printf("%d\n",*ptr);
+    printf("%p",&*ptr);
+    printf("%p",ptr);
+}
