@@ -1,0 +1,23 @@
+#include <stdio.h>
+
+int fun(int num,int pos)
+{
+    
+    if(num&(1<<pos-1))
+    {
+        printf("set");
+        
+    }
+    else
+    {
+        printf("unset");
+    }
+}
+int main()
+{
+    int num,pos=0;
+    printf("enter the num and pos");
+    scanf("%d %d",&num,&pos);
+    int (*fptr)(int,int )=fun;
+    fptr(num,pos);
+}
