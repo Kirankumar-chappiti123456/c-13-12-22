@@ -1,0 +1,81 @@
+#include<stdio.h>
+#include<stdlib.h>
+struct node
+{
+    int data;
+    struct node*link;
+};
+struct node *rev(struct node *head)
+{
+    struct node *ptr,*ptr1;
+    ptr=head;
+    while(ptr->link!=NULL)
+    {
+        ptr1=ptr->link;
+        while(ptr1!=NULL)
+        {
+            if(ptr->data <ptr1->data)
+            {
+                int temp=ptr->data;
+                ptr->data=ptr1->data;
+                ptr1->data=temp;
+            }
+            ptr1=ptr1->link;
+        }
+        ptr=ptr->link;
+    }
+    return head;
+}
+int main()
+{
+    struct node *head=NULL;
+    struct node *p;
+    struct node *k1=malloc(sizeof(struct node));
+    k1->data=10;
+    k1->link=NULL;
+    head=k1;
+    
+    struct node *k2=malloc(sizeof(struct node));
+    k2->data=20;
+    k1->link=k2;
+    
+    struct node *k3=malloc(sizeof(struct node));
+    k3->data=30;
+    k2->link=k3;
+    
+    struct node *k4=malloc(sizeof(struct node));
+    k4->data=40;
+    k3->link=k4;
+    
+    struct node *k5=malloc(sizeof(struct node));
+    k5->data=50;
+    k4->link=k5;
+    k5->link=NULL;
+    
+    
+    
+    p=head;
+    printf("\nbefore rev:");
+    while(p!=NULL)
+    {
+        printf("%d ",p->data);
+        p=p->link;
+    }
+    
+    
+    head=rev(head);
+    p=head;
+    printf("\nafter rev:");
+    while(p!=NULL)
+    {
+        printf(" %d ",p->data);
+        p=p->link;
+    }
+    
+}
+
+
+output:
+
+before rev:10 20 30 40 50 
+after rev: 50  40  30  20  10 
