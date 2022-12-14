@@ -1,0 +1,17 @@
+#include<stdio.h>
+int fun(int a,int b)
+{
+    
+    int *p=&a;
+    int *q=&b;
+    int sum=*p+*q;
+    printf("%d",sum);
+}
+int main()
+{
+    int a=10;
+    int b =20;
+    int (*fptr)(int ,int)=fun;
+    fptr(a,b);
+    
+}
